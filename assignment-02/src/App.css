@@ -1,3 +1,11 @@
 .App {
   margin: 16px;
 }
+
+.App > div {
+  text-align: center;
+}
+
+.charBoxes {
+  margin-top: 20px;
+}
