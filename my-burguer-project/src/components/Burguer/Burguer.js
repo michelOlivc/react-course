@@ -6,16 +6,13 @@ import classes from './Burguer.css';
 
 const burguer = props => {
   let transformedIngredients = Object
-    .keys(props.ingredients)  // transforma os nomes dos atributos do obj ingredientes em um array de strings
-    .map(igKey => {           // itera sobre o array retornado 
-      // inicializa um array com posições vazias, mas com tamanho igual ao inteiro vinculado ao ingrediente no array original
+    .keys(props.ingredients)  
+    .map(igKey => {            
       return [...Array(props.ingredients[igKey])].map((_, i) => {
-        // para cada posição vazia gerada no array, é renderizado um ingrediente 
         return <BurgerIngredient key={igKey + i} type={igKey} />;
       });
     })
-    .reduce((arr, el) => arr.concat(el), []); // cria uma copia do array de componentes gerados e armazena em transformedIngredients 
-
+    .reduce((arr, el) => arr.concat(el), []); 
   if(transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredient</p>
   }
